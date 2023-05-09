@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="flex justify-content-center">
+    <a routerLink="/login">
+    <img
+      width="130"
+      height="52"
+      src="/assets/icons/MarvelLogo.svg"
+      alt="Marvel Logo"
+    />
+  </a>
+  </div>
+  <div class="flex justify-content-center" *ngIf="this.isAuth()">
+    <div class="px-3">
+      <div class="py-2 nav-button">
+        <a mat-button routerLink="/private/series">Series</a>
+      </div>
+    </div>
+    <div class="px-3">
+      <div class="py-2 nav-button">
+        <button mat-button (click)="signOut()">Sign Out</button>
+      </div>
+    </div>
+  </div>
+</div>

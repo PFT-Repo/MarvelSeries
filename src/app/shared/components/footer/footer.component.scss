@@ -1,0 +1,30 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+nav{
+    text-decoration: none;
+    list-style: none;
+    font-style: normal;
+    ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        list-style: none;
+        font-style: normal;
+        li{
+            text-decoration: none;
+            list-style: none;
+            font-style: normal;
+            a{
+                text-decoration: none;
+                list-style: none;
+                font-style: normal;
+                
+    color: whitesmoke;
+            }
+        }
+    }
+  }

@@ -1,0 +1,53 @@
+<div class="grid">
+  <div class="col-12 md:col-6 md:col-offset-3 md:mt-8">
+    <div class="flex flex-column">
+      <h1 class="text-center mb-4">Sign In</h1>
+      <form class="m-5" [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <mat-form-field class="col-10 col-offset-1">
+          <mat-label>Public Key</mat-label>
+          <input
+            type="text"
+            id="publicApyKey"
+            matInput
+            placeholder="Public key"
+            formControlName="publicApyKey"
+            required
+          />
+          <mat-error
+            *ngIf="signInForm.get('publicApyKey')?.touched && signInForm.get('publicApyKey')?.errors?.['required']"
+            class="invalid-feedback"
+          >
+            Public Key is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-10 col-offset-1">
+          <mat-label>Private Key</mat-label>
+          <input
+            type="text"
+            id="privateApyKey"
+            class="form-control"
+            formControlName="privateApyKey"
+            matInput
+            placeholder="Private Key"
+            required
+          />
+          <mat-error
+            *ngIf="signInForm.get('privateApyKey')?.touched && signInForm.get('privateApyKey')?.errors?.['required']"
+            class="invalid-feedback"
+          >
+            Private Key is required.
+          </mat-error>
+        </mat-form-field>
+        <button
+          class="col-6 col-offset-3"
+          type="submit"
+          mat-button
+          mat-flat-button
+          color="warn"
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

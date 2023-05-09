@@ -1,0 +1,43 @@
+<div class="grid p-4">
+  <div class="col-12 md:col-4 pr-5">
+    <img
+      src="{{ comic.imageLink }}"
+      alt="Comic thumbnail"
+      class="max-w-full"
+    />
+  </div>
+  <div class="col-12 md:col-8">
+    <h1>{{ comic.title }}</h1>
+    <div *ngIf="comic.publicationDate">
+      <h2>
+        <div>Published</div>
+        <div>{{ comic.publicationDate | date:"yyyy-MMM-dd" }}</div>
+      </h2>
+    </div>
+    <div class="grid">
+      <div class="col-12 md:col-6">
+        <h2>
+          <div *ngIf="comic.writers && comic.writers.length">
+            <div>Writer:</div>
+            <div>{{ comic.writers[0] }}</div>
+          </div>
+        </h2>
+        <h2>
+          <div *ngIf="comic.coverArtists && comic.coverArtists.length">
+            <div>Cover Artist:</div>
+            <div>{{ comic.coverArtists[0] }}</div>
+          </div>
+        </h2>
+      </div>
+      <div class="col-12 md:col-6">
+        <h2>
+          <div *ngIf="comic.pencilers && comic.pencilers.length">
+            <div>Penciler:</div>
+            <div>{{ comic.pencilers[0] }}</div>
+          </div>
+        </h2>
+      </div>
+    </div>
+    <div *ngIf="comic.description">{{ comic.description }}</div>
+  </div>
+</div>

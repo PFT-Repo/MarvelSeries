@@ -1,0 +1,41 @@
+<ng-container *ngIf="element; else loading">
+    <table class="table">
+        <div class="search-results" infiniteScroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Img</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">More</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let elemento of element | async">
+                    <td>{{elemento.id}}</td>
+                    <td><img src="{{elemento.img}}" placeholder="" alt="" width="100px"></td>
+                    <td>{{elemento.title}}</td>
+                    <td>{{elemento.date | date:"yyyy-MMM-dd"}}</td>
+                    <ng-container *ngIf="myroute !== '/private/series' ; else normal">
+                        <td><a routerLink="/private/comics/{{elemento.id}}"><button mat-flat-button> See more</button></a>
+                        </td>
+                    </ng-container>
+                    <ng-template #normal>
+                        <td #normal>
+                            <a routerLink="/private/series/{{elemento.id}}"><button mat-flat-button> See more</button></a></td>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </div>
+    </table>
+</ng-container>
+<ng-template #loading>
+    <div class="flex w-full text-center">
+        <button mat-button class="btn btn-primary d-block" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading Selection
+        </button>
+    </div>
+</ng-template>
